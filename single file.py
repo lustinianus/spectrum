@@ -1,0 +1,14 @@
+import os
+import pandas as pd
+from pathlib import Path
+
+
+
+os.chdir(r"C:\Users\hui.xie\Desktop\浙大项目\光谱原始数据 - 副本\txt数据")
+
+data = pd.read_csv(r".\0", header=None, encoding="utf-16LE", sep="\t", names=["样本", "序号", "波段", "值"])
+df=pd.pivot(data,index="样本",columns="波段",values="值")#读取dn值
+# date=pd.read_csv(r".\ascII.TXT",sep="/t",names=["波段","值"])
+#
+# df=pd.pivot(date,index="样本",columns="波段",values="值")
+df.to_csv("./signel_file.csv")
